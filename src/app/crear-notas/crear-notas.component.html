@@ -1,1 +1,54 @@
 <p>crear-notas works!</p>
+
+<form   >
+    
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group input-group mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Titulo</span>
+                <input type="text" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" name="Titulo"ngModel>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group input-group mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Fecha de apertura</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" name="fechaAper" ngModel>
+            </div>
+        </div>
+    </div>
+    <div class="separador"></div>
+
+    <!--  -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-group input-group mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Estado</span>
+                <input type="date" class="form-control" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-sm" name="estado" ngModel> 
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group input-group mb-6">
+                <span class="input-group-text" id="inputGroup-sizing-sm">Tipo</span>
+                <select class="form-select" aria-label="Default select example" name="tipo" ngModel>
+                    <option selected>-- Seleccionar --</option>
+                    <option value="Nota">Nota</option>
+                    <option value="Tarea">Tarea</option>
+                    <option value="Recordatorio">Recordatorio</option>
+                  </select>
+            </div>
+        </div>
+    </div>
+    <div class="separador"></div>
+    <div class="row">
+        <div class="col-md-12">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion" ngModel></textarea>
+            
+        </div>
+        
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
