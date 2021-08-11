@@ -1,0 +1,21 @@
+<h2>User´s Table</h2>
+
+<table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Lastname</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Email</th>
+      </tr>
+    </thead>
+    <tbody class="table-primary">
+      <tr *ngFor="let user of users;">
+        <td>{{ user.name }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
