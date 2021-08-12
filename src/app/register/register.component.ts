@@ -27,15 +27,15 @@ export class RegisterComponent implements OnInit {
   console.log(value, valid)
   if (valid) {
     try {
-      this.message = await this.userService.registerUser(value)
-      console.log(typeof this.message, this.message)
+      this.message = await this.userService.registerUser(value);
+      console.log(typeof this.message, this.message);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-    this.userForm.reset()
+    this.userForm.reset();
   } else {
-    this.message = "Tienes campos invalidos"
-    console.log(this.userForm)
+    this.message = "Tienes campos invalidos";
+    console.log(this.userForm);
   }
 }
 }

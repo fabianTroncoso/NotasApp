@@ -25,4 +25,19 @@ export class UserService {
       resolve(this.users);
     })
   }
+
+  logIn(email: string, password: string){
+    return new Promise((resolve, reject)=>{
+      let isUser = this.apiServices.logIn(email, password);
+      if(isUser) {
+        resolve(true);
+      } else {
+        reject(false);
+      }
+    })
+  }
+
+  isLogin() {
+    return this.apiServices.getIsLogin();
+  }
 }
