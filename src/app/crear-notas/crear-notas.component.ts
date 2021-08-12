@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { Nota } from './notas.module';
-import { FormsModule,FormGroup, FormControl }   from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-crear-notas',
@@ -10,30 +11,38 @@ import { FormsModule,FormGroup, FormControl }   from '@angular/forms';
   exportAs: 'ngForm'
 })
 export class CrearNotasComponent implements OnInit {
+  notaForm: FormGroup;
+  message: any = ""
 
-  constructor() { }
-  notas: Nota[]=[]
-  nota: Nota={
-    titulo: "",
-    descripcion: "",
-    fechaAper: new Date(),
-    tipo: "",
-    estado:""
+  constructor(private userService: UserService) { 
+      this.notaForm = new FormGroup({
+      titulo: new FormControl(),
+      descripcion: new FormControl(),
+      fechaAper: new FormControl(),
+      fechaCierre: new FormControl(),
+      tipo: new FormControl(),
+      estado: new FormControl()
+    })
   }
+
 
   ngOnInit(): void {
   }
 
-  onSubmit(fn: NgForm): void { 
-
-    const { titulo, descripcion, fechaAper, tipo, estado} = fn.value
-    this.nota={
-      titulo: titulo,
-      descripcion: descripcion,
-      fechaAper: fechaAper,
-      tipo: tipo,
-      estado: estado
+  async nuevaNota({ value, valid }: { value: Nota, valid: boolean }) {
+    console.log(value, valid)
+    if (valid) {
+      try {
+        this.message = await this.userService.registerNote(value);
+        console.log(typeof this.message, this.message);
+      } catch (err) {
+        console.log(err);
+      }
+      this.notaForm.reset();
+    } else {
+      this.message = "Tienes campos invalidos";
+      console.log(this.notaForm);
     }
-    this.notas.push(this.nota)
   }
+  
 }
