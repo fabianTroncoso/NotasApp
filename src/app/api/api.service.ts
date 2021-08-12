@@ -1,13 +1,22 @@
 import { Injectable } from '@angular/core';
 import { User } from '../interfaces/user/user.module';
+import { Nota } from '../crear-notas/notas.module';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
   users: User[] = [];
+  notas: Nota[] = [];
   constructor() {
     this.users = JSON.parse(localStorage.users || "[]")
+    this.notas = JSON.parse(localStorage.notas || "[]")
+  }
+
+  setNota(nota: Nota) { //users POST
+    this.notas.push(nota);
+    console.log(this.notas)
+    localStorage.notas = JSON.stringify(this.notas);
   }
 
   setUser(user: User) { //users POST
