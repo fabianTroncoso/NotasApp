@@ -7,12 +7,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './auth-guard.service';
+import { NotasTablaComponent } from './notas-tabla/notas-tabla.component';
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotasTablaComponent
   ],
   imports: [
     BrowserModule,
