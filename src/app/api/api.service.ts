@@ -13,12 +13,6 @@ export class ApiService {
     this.notas = JSON.parse(localStorage.notas || "[]")
   }
 
-  setNota(nota: Nota) { //users POST
-    this.notas.push(nota);
-    console.log(this.notas)
-    localStorage.notas = JSON.stringify(this.notas);
-  }
-
   setUser(user: User) { //users POST
     this.users.push(user);
     console.log(this.users)
@@ -29,6 +23,18 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users)
     return this.users;
   }
+
+  setNota(nota: Nota) { //users POST
+    this.notas.push(nota);
+    console.log(this.notas)
+    localStorage.notas = JSON.stringify(this.notas);
+  }
+
+  getNotas(): Nota[] { //users get
+    this.notas = JSON.parse(localStorage.notas)
+    return this.notas;
+  }
+
   logIn(email: string, password: string): boolean { //login POST
     this.users = JSON.parse(localStorage.users || "[]");
     let emails = this.users.map(function(e){return e.email});
