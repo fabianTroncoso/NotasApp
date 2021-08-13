@@ -37,6 +37,12 @@ export class UserService {
       resolve(this.users);
     })
   }
+  getNotes(){
+    return new Promise<Nota[]>((resolve, reject) => {
+      this.notas = this.apiServices.getNotas();
+      resolve(this.notas);
+    })
+  } 
 
   logIn(email: string, password: string){
     return new Promise((resolve, reject)=>{

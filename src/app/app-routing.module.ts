@@ -13,14 +13,10 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent, canActivate: [AuthGuardService]},
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-<<<<<<< HEAD
-  { path: "notas-tabla", component: NotasTablaComponent }
-]
-=======
+  { path: "notas-tabla", component: NotasTablaComponent, canActivate: [AuthGuardService] },
   { path: "newNotes", component: CrearNotasComponent, canActivate: [AuthGuardService] }
 ];
 
->>>>>>> 4157e0271ee3654235650d765d4ed366b7ace6a9
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

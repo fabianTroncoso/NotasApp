@@ -1,34 +1,37 @@
+<!DOCTYPE html>
 <div class="separador"></div>
 <h1>Tabla de Notas</h1>
 
 <div class="mb-3">
     
-    <button type="button" class="btn btn-primary">New Note</button>
+    <!-- <button type="button" class="btn btn-primary">New Note</button> -->
+    <button onclick="location.href='/newNotes'" class="btn btn-primary" >New Note</button>
+    
+    
 </div>
+
 
 <table class="table">
 
 
     <thead class="table-dark">
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Title</th>
         <th scope="col">Description</th>
-        <th scope="col">Type</th>
         <th scope="col">DateA</th>
-        <th scope="col">DateT</th>
+        <th scope="col">DateC</th>
+        <th scope="col">Type</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody class="table-primary">
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr *ngFor="let nota of notas;">
+        <td>{{nota.titulo}}</td>
+        <td>{{nota.descripcion}}</td>
+        <td>{{nota.fechaAper}}</td>
+        <td>{{nota.fechaCierre}}</td>
+        <td>{{nota.tipo}}</td>
+        <td>{{nota.estado}}</td>
+      </tr>  
     </tbody>
 </table>
