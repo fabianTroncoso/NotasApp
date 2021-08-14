@@ -1,0 +1,43 @@
+<h2>Dashboard</h2>
+
+<div class="dashboard-container">
+    <table class="table table-users">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="table-primary">
+          <tr *ngFor="let user of users;">
+            <td>{{ user.name }} {{ user.lastName }}</td>
+            <td #email>{{ user.email }}</td>
+            <td><button class="btn btn-primary" (click)="getNotasUser(user)">Ver Notas</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2>Notas {{nombre}} </h2>
+      <table class="table table-notas">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">DateA</th>
+            <th scope="col">DateC</th>
+            <th scope="col">Type</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody class="table-primary">
+          <tr *ngFor="let nota of notasUser;">
+            <td>{{nota.titulo}}</td>
+            <td>{{nota.descripcion}}</td>
+            <td>{{nota.fechaAper}}</td>
+            <td>{{nota.fechaCierre}}</td>
+            <td>{{nota.tipo}}</td>
+            <td>{{nota.estado}}</td>
+          </tr>  
+        </tbody>
+    </table>
+</div>

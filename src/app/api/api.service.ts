@@ -8,6 +8,7 @@ import { Nota } from '../crear-notas/notas.module';
 export class ApiService {
   users: User[] = [];
   notas: Nota[] = [];
+  notasUser: Nota[] = [];
   constructor() {
     this.users = JSON.parse(localStorage.users || "[]")
     this.notas = JSON.parse(localStorage.notas || "[]")
@@ -28,11 +29,27 @@ export class ApiService {
     this.notas.push(nota);
     console.log(this.notas)
     localStorage.notas = JSON.stringify(this.notas);
+
+    this.users = JSON.parse(localStorage.users || "[]")
+    let emails = this.users.map(function(e){return e.email});
+    let index = emails.indexOf(localStorage.correo);
+    this.users[index].notas.push(nota);
+    localStorage.users = JSON.stringify(this.users);
   }
 
   getNotas(): Nota[] { //users get
     this.notas = JSON.parse(localStorage.notas)
     return this.notas;
+  }
+
+  getNotasUser(user: User) {
+    this.users = JSON.parse(localStorage.users || "[]");
+    let usuario = this.users.find(e => e = user);
+    //Array.from(this.users).contains(user);
+    //asList(this.users).contains(user);
+    //this.notasUser = usuario?.notas.map(function(e){return e})!;
+    this.notasUser = user.notas;
+    return this.notasUser;
   }
 
   logIn(email: string, password: string): boolean { //login POST

@@ -2,12 +2,22 @@ import { Injectable } from '@angular/core';
 import { ApiService } from '../api/api.service';
 import { User } from '../interfaces/user/user.module';
 import { Nota } from '../crear-notas/notas.module';
+import { resolveSanitizationFn } from '@angular/compiler/src/render3/view/template';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   users: User[] = [];
   notas: Nota[] = [];
+  user: User = {
+    name: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    password: "",
+    notas: []
+  };
+  notasUser: Nota[] = [];
   constructor(private apiServices: ApiService) { }
   registerNote(nota: Nota) {
     return new Promise((resolve, reject) => {
@@ -37,12 +47,20 @@ export class UserService {
       resolve(this.users);
     })
   }
+  
   getNotes(){
     return new Promise<Nota[]>((resolve, reject) => {
       this.notas = this.apiServices.getNotas();
       resolve(this.notas);
     })
-  } 
+  }
+
+  getNotasUser(user: User) {
+    return new Promise<Nota[]>((resolve, reject) => {
+      this.notasUser = this.apiServices.getNotasUser(user);
+      resolve(this.notasUser);
+    })
+  }
 
   logIn(email: string, password: string){
     return new Promise((resolve, reject)=>{

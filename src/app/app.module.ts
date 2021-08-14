@@ -9,6 +9,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AuthGuardService } from './auth-guard.service';
 import { NotasTablaComponent } from './notas-tabla/notas-tabla.component';
 import { CrearNotasComponent } from './crear-notas/crear-notas.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { CrearNotasComponent } from './crear-notas/crear-notas.component';
     RegisterComponent,
     NotasTablaComponent,
     CrearNotasComponent,
-    RegisterComponent
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

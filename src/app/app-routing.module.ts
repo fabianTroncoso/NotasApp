@@ -7,6 +7,7 @@ import { NotasTablaComponent } from './notas-tabla/notas-tabla.component';
 import { RegisterComponent } from './register/register.component';
 import { CrearNotasComponent } from './crear-notas/crear-notas.component';
 import { UsersComponent } from './users/users.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "notas-tabla", component: NotasTablaComponent, canActivate: [AuthGuardService] },
-  { path: "newNotes", component: CrearNotasComponent, canActivate: [AuthGuardService] }
+  { path: "newNotes", component: CrearNotasComponent, canActivate: [AuthGuardService] },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuardService] }
 ];
 
 

@@ -25,7 +25,6 @@ export class CrearNotasComponent implements OnInit {
     })
   }
 
-
   ngOnInit(): void {
   }
 
