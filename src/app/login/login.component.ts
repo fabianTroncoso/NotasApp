@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
 
   async loginUser() {
     this.usuarioIncorrecto = false;
+    localStorage.correo = this.loginForm.get('email')?.value;
     try {
-      let valor = await this.userService.logIn(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
+      await this.userService.logIn(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
       this.router.navigate(["users"]);
     } catch(err) {
       this.usuarioIncorrecto = true;
