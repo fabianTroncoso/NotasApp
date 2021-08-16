@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../interfaces/user/user.module';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../service/user.service';
+import { Nota } from '../crear-notas/notas.module';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,6 +18,7 @@ export class RegisterComponent implements OnInit {
       phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
       email: new FormControl('', [Validators.required,Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(5)])
+
     })
   }
 

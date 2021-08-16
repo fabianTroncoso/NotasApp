@@ -28,12 +28,18 @@ export class ApiService {
     this.notas.push(nota);
     console.log(this.notas)
     localStorage.notas = JSON.stringify(this.notas);
+
   }
 
   getNotas(): Nota[] { //users get
     this.notas = JSON.parse(localStorage.notas)
     return this.notas;
   }
+
+  /*notaUsuario(email: string, nota: Nota){
+    this.users = JSON.parse(localStorage.users || "[]");
+    let emails = this.users.map(function(e){return e.email});
+  }*/
 
   logIn(email: string, password: string): boolean { //login POST
     this.users = JSON.parse(localStorage.users || "[]");

@@ -2,6 +2,7 @@ import { getLocaleMonthNames } from '@angular/common';
 import { Component, OnInit, Input  } from '@angular/core';
 import { Nota } from '../crear-notas/notas.module';
 import { UserService } from '../service/user.service';
+import { User } from '../interfaces/user/user.module';
 //import { crear-notas} from '../crear-notas/crear-notas.component'
 @Component({
   selector: 'app-notas-tabla',
