@@ -10,6 +10,16 @@ import { UserService } from '../service/user.service';
 })
 export class NotasTablaComponent implements OnInit {
   notas : Nota[] = [];
+  nota: Nota = {
+    titulo: "",
+    descripcion: "",
+    fechaAper: new Date,
+    fechaCierre: new Date,
+    tipo: "",
+    estado:""
+  };
+  message: any;
+
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
@@ -22,16 +32,30 @@ export class NotasTablaComponent implements OnInit {
       
     }
   }
+
+  async editUser(nota: Nota) { //Funcion para editar los campos de la nota
+    try {
+      this.message = await this.userService.editNota(nota);
+      alert(this.message);
+    } catch (err) {
+      
+    }
+    console.log(this.nota)
+  }
+
+  notaEdit(nota: Nota) {
+    this.userService.notaEdit(nota);
+  }
+
+  async deleteNota(nota: Nota) { //Funcion para eliminar una nota
+    const response = confirm("Are you sure to delete it?");
+    if (response) {
+      try {
+        this.nota = await this.userService.deleteNota(nota);
+      } catch (err) {
+        
+      }
+    }
+  }
+
 }
-
-
-/*export class UsersTableComponent implements OnInit {
-  @Input() users: User[] =[];
-  @Input() titleTabla: string =''
-  constructor() { 
-  }
-
-  ngOnInit(): void {
-  }
-
-}*/

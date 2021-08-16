@@ -22,6 +22,8 @@
         <th scope="col">DateC</th>
         <th scope="col">Type</th>
         <th scope="col">Status</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="table-primary">
@@ -32,6 +34,8 @@
         <td>{{nota.fechaCierre}}</td>
         <td>{{nota.tipo}}</td>
         <td>{{nota.estado}}</td>
+        <td><button routerLink="/editNote" (click)="notaEdit(nota)" class="btn btn-warning">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteNota(nota)">Delete</button></td>
       </tr>  
     </tbody>
 </table>
