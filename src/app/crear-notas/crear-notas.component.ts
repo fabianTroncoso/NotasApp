@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Nota } from './notas.module';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../service/user.service';
+import { User } from '../interfaces/user/user.module';
 
 @Component({
   selector: 'app-crear-notas',
@@ -13,6 +14,7 @@ import { UserService } from '../service/user.service';
 export class CrearNotasComponent implements OnInit {
   notaForm: FormGroup;
   message: any = ""
+  users: User[]=[]
 
   constructor(private userService: UserService) { 
       this.notaForm = new FormGroup({
@@ -28,7 +30,10 @@ export class CrearNotasComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+
   async nuevaNota({ value, valid }: { value: Nota, valid: boolean }) {
+
     console.log(value, valid)
     if (valid) {
       try {

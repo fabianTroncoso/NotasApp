@@ -13,6 +13,21 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users || "[]")
     this.notas = JSON.parse(localStorage.notas || "[]")
   }
+<<<<<<< HEAD
+=======
+  
+  setNota(nota: Nota) { //users POST
+    this.notas.push(nota);
+    console.log(this.notas)
+    localStorage.notas = JSON.stringify(this.notas);
+    let emails = this.users.map(function(e){return e.email}); 
+    let posUser=emails.indexOf(localStorage.correo)
+    console.log("posicion de usuario:"+posUser)
+   // localStorage.users[posUser].notas.push(nota)
+    this.users[posUser].notas.push(nota)
+
+  }
+>>>>>>> 6fec018cfedb55f7971180717223305194bd1a4e
 
   setUser(user: User) { //users POST
     this.users.push(user);
