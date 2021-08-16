@@ -7,6 +7,8 @@
         <th scope="col">Lastname</th>
         <th scope="col">Phone</th>
         <th scope="col">Email</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="table-primary">
@@ -15,7 +17,8 @@
         <td>{{ user.lastName }}</td>
         <td>{{ user.phone }}</td>
         <td>{{ user.email }}</td>
+        <td><button routerLink="/editUser" (click)="usuarioEdit(user)" class="btn btn-warning">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteUser(user)">Delete</button></td>
       </tr>
     </tbody>
   </table>
-  

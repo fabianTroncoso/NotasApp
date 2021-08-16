@@ -10,6 +10,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { NotasTablaComponent } from './notas-tabla/notas-tabla.component';
 import { CrearNotasComponent } from './crear-notas/crear-notas.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     NotasTablaComponent,
     CrearNotasComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditUserComponent,
+    EditNotesComponent
   ],
   imports: [
     BrowserModule,
