@@ -17,8 +17,8 @@ export class RegisterComponent implements OnInit {
       lastName: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
       email: new FormControl('', [Validators.required,Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(5)])
-
+      password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      notas: new FormControl([])
     })
   }
 
@@ -26,18 +26,18 @@ export class RegisterComponent implements OnInit {
   }
 
   async register({ value, valid }: { value: User, valid: boolean }) {
-  console.log(value, valid)
-  if (valid) {
-    try {
-      this.message = await this.userService.registerUser(value);
-      console.log(typeof this.message, this.message);
-    } catch (err) {
-      console.log(err);
+    console.log(value, valid)
+    if (valid) {
+      try {
+        this.message = await this.userService.registerUser(value);
+        console.log(typeof this.message, this.message);
+      } catch (err) {
+        console.log(err);
+      }
+      this.userForm.reset();
+    } else {
+      this.message = "Tienes campos invalidos";
+      console.log(this.userForm);
     }
-    this.userForm.reset();
-  } else {
-    this.message = "Tienes campos invalidos";
-    console.log(this.userForm);
   }
-}
 }

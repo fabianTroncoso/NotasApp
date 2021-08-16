@@ -8,6 +8,7 @@ import { Nota } from '../crear-notas/notas.module';
 export class ApiService {
   users: User[] = [];
   notas: Nota[] = [];
+  notasUser: Nota[] = [];
   constructor() {
     this.users = JSON.parse(localStorage.users || "[]")
     this.notas = JSON.parse(localStorage.notas || "[]")
@@ -36,10 +37,11 @@ export class ApiService {
     return this.notas;
   }
 
-  /*notaUsuario(email: string, nota: Nota){
-    this.users = JSON.parse(localStorage.users || "[]");
+  notaUsuario(email: string, nota: Nota){
+    this.users = JSON.parse(localStorage.nota || "[]");
     let emails = this.users.map(function(e){return e.email});
-  }*/
+    this.users
+  }
 
   logIn(email: string, password: string): boolean { //login POST
     this.users = JSON.parse(localStorage.users || "[]");

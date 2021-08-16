@@ -6,5 +6,5 @@ export interface User {
   phone: string,
   email: string,
   password: string,
-  notas: Nota[]  
+  notas: Nota[]
 }
