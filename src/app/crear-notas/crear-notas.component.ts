@@ -16,7 +16,8 @@ export class CrearNotasComponent implements OnInit {
   message: any = ""
   users: User[]=[]
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService) {
+       
       this.notaForm = new FormGroup({
       titulo: new FormControl(),
       descripcion: new FormControl(),

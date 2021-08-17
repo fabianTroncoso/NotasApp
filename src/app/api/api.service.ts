@@ -13,8 +13,6 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users || "[]")
     this.notas = JSON.parse(localStorage.notas || "[]")
   }
-<<<<<<< HEAD
-=======
   
   setNota(nota: Nota) { //users POST
     this.notas.push(nota);
@@ -27,7 +25,15 @@ export class ApiService {
     this.users[posUser].notas.push(nota)
 
   }
->>>>>>> 6fec018cfedb55f7971180717223305194bd1a4e
+  getNotasUser(user: User) {
+    this.users = JSON.parse(localStorage.users || "[]");
+    let usuario = this.users.find(e => e = user);
+    //Array.from(this.users).contains(user);
+    //asList(this.users).contains(user);
+    //this.notasUser = usuario?.notas.map(function(e){return e})!;
+    this.notasUser = user.notas;
+    return this.notasUser;
+  }
 
   setUser(user: User) { //users POST
     this.users.push(user);
@@ -38,13 +44,6 @@ export class ApiService {
   getUsers(): User[] { //users get
     this.users = JSON.parse(localStorage.users)
     return this.users;
-  }
-
-  setNota(nota: Nota) { //users POST
-    this.notas.push(nota);
-    console.log(this.notas)
-    localStorage.notas = JSON.stringify(this.notas);
-
   }
 
   getNotas(): Nota[] { //users get
