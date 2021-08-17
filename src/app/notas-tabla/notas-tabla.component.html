@@ -22,6 +22,8 @@
         <th scope="col">DateC</th>
         <th scope="col">Type</th>
         <th scope="col">Status</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody class="table-primary">
@@ -32,10 +34,15 @@
         <td>{{nota.fechaCierre}}</td>
         <td>{{nota.tipo}}</td>
         <td>{{nota.estado}}</td>
+<<<<<<< HEAD
         <button onclick="location.href='/newNotes'" class="btn btn-primary" style="color: rgb(7, 6, 6);" >Modificar</button>
         <button  class="btn btn-primary" style="color: rgb(201, 15, 15);" >Eliminar</button>
         <!-- (click)="eliminarNota(nota)" -->
 
+=======
+        <td><button routerLink="/editNote" (click)="notaEdit(nota)" class="btn btn-warning">Edit</button></td>
+        <td><button class="btn btn-danger" (click)="deleteNota(nota)">Delete</button></td>
+>>>>>>> 8b5093166e69e8aa54da540efacd2e58b8857dd6
       </tr>  
     </tbody>
 </table>

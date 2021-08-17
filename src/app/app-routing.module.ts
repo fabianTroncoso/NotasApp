@@ -8,7 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { CrearNotasComponent } from './crear-notas/crear-notas.component';
 import { UsersComponent } from './users/users.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ModificaNotaComponent } from './modifica-nota/modifica-nota.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { EditNotesComponent } from './edit-notes/edit-notes.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: "notas-tabla", component: NotasTablaComponent, canActivate: [AuthGuardService] },
   { path: "newNotes", component: CrearNotasComponent, canActivate: [AuthGuardService] },
   { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuardService] },
-  { path: "modifica-nota", component: ModificaNotaComponent }
+  { path: "editUser", component: EditUserComponent, canActivate: [AuthGuardService] },
+  { path: "editNote", component: EditNotesComponent, canActivate: [AuthGuardService] }
 ];
 
 

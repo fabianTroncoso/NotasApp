@@ -17,7 +17,16 @@ export class UserService {
     password: "",
     notas: []
   };
+  nota: Nota = {
+    titulo: "",
+    descripcion: "",
+    fechaAper: new Date,
+    fechaCierre: new Date,
+    tipo: "",
+    estado:""
+  };
   notasUser: Nota[] = [];
+
   constructor(private apiServices: ApiService) { }
   registerNote(nota: Nota) {
     return new Promise((resolve, reject) => {
@@ -47,6 +56,14 @@ export class UserService {
       resolve(this.users);
     })
   }
+
+  usuarioEdit(user: User) {
+    this.user = user;
+  }
+
+  notaEdit(nota: Nota) {
+    this.nota = nota;
+  }
   
   getNotes(){
     return new Promise<Nota[]>((resolve, reject) => {
@@ -59,6 +76,32 @@ export class UserService {
     return new Promise<Nota[]>((resolve, reject) => {
       this.notasUser = this.apiServices.getNotasUser(user);
       resolve(this.notasUser);
+    })
+  }
+
+  editUser(user: User) {
+    return new Promise((resolve, reject) => {
+      this.apiServices.editUser(user);
+      resolve("Datos actualizados");
+    })
+  }
+  editNota(nota: Nota) {
+    return new Promise((resolve, reject) => {
+      this.apiServices.editNota(nota);
+      resolve("Datos actualizados");
+    })
+  }
+
+  deleteUser(user: User) {
+    return new Promise<User>((resolve, reject) => {
+      this.user = this.apiServices.deleteUser(user);
+      resolve(this.user);
+    })
+  }
+  deleteNota(nota: Nota) {
+    return new Promise<Nota>((resolve, reject) => {
+      this.apiServices.deleteNota(nota);
+      resolve(this.nota);
     })
   }
 
