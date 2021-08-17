@@ -41,15 +41,6 @@ export class ApiService {
     this.users[posUser].notas.push(nota)
 
   }
-  getNotasUser(user: User) {
-    this.users = JSON.parse(localStorage.users || "[]");
-    let usuario = this.users.find(e => e = user);
-    //Array.from(this.users).contains(user);
-    //asList(this.users).contains(user);
-    //this.notasUser = usuario?.notas.map(function(e){return e})!;
-    this.notasUser = user.notas;
-    return this.notasUser;
-  }
 
   setUser(user: User) { //users POST
     this.users.push(user);
@@ -67,18 +58,11 @@ export class ApiService {
     return this.notas;
   }
 
-<<<<<<< HEAD
-  notaUsuario(email: string, nota: Nota){
-    this.users = JSON.parse(localStorage.nota || "[]");
-    let emails = this.users.map(function(e){return e.email});
-    this.users
-=======
   getNotasUser(user: User) {
     this.users = JSON.parse(localStorage.users || "[]");
     let usuario = this.users.find(e => e = user);
     this.notasUser = user.notas;
     return this.notasUser;
->>>>>>> 8b5093166e69e8aa54da540efacd2e58b8857dd6
   }
 
   editUser(user: User) {

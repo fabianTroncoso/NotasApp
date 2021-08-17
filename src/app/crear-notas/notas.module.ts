@@ -5,5 +5,5 @@ export interface Nota{
   fechaCierre: Date,
   tipo: string,
   estado:string,
-  id: number
+  //id: number
 }
