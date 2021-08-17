@@ -29,6 +29,18 @@ export class ApiService {
     this.users = JSON.parse(localStorage.users || "[]")
     this.notas = JSON.parse(localStorage.notas || "[]")
   }
+  
+  setNota(nota: Nota) { //users POST
+    this.notas.push(nota);
+    console.log(this.notas)
+    localStorage.notas = JSON.stringify(this.notas);
+    let emails = this.users.map(function(e){return e.email}); 
+    let posUser=emails.indexOf(localStorage.correo)
+    console.log("posicion de usuario:"+posUser)
+   // localStorage.users[posUser].notas.push(nota)
+    this.users[posUser].notas.push(nota)
+
+  }
 
   setUser(user: User) { //users POST
     this.users.push(user);
@@ -39,18 +51,6 @@ export class ApiService {
   getUsers(): User[] { //users get
     this.users = JSON.parse(localStorage.users)
     return this.users;
-  }
-
-  setNota(nota: Nota) { //users POST
-    this.notas.push(nota);
-    console.log(this.notas)
-    localStorage.notas = JSON.stringify(this.notas);
-
-    this.users = JSON.parse(localStorage.users || "[]")
-    let emails = this.users.map(function(e){return e.email});
-    let index = emails.indexOf(localStorage.correo);
-    this.users[index].notas.push(nota);
-    localStorage.users = JSON.stringify(this.users);
   }
 
   getNotas(): Nota[] { //users get

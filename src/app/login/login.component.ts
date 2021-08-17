@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
 
   async loginUser() {
     this.usuarioIncorrecto = false;
+    //localStorage.notas = JSON.stringify(this.notas);
     localStorage.correo = this.loginForm.get('email')?.value;
     try {
       await this.userService.logIn(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value);
